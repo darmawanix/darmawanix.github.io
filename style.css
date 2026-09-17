@@ -1,0 +1,269 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* START */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header Styling */
+header {
+  background-color: grey;
+  padding: 30px 50px;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
+header nav h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 50vh;
+  background-color: aliceblue;
+}
+header nav ul a {
+  text-decoration: none;
+  color: black;
+  font-weight: lighter;
+}
+/* End Header Styling */
+
+/* Main Styling */
+main #hero {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+}
+main #hero .hero-text {
+  margin-bottom: 20px;
+}
+main #hero div {
+  background-color: blueviolet;
+  text-align: center;
+  display: inline-block;
+  padding: 20vh 0;
+}
+main #hero div span {
+  font-size: 20px;
+}
+main #hero div h2 {
+  font-size: 50px;
+  font-weight: bold;
+}
+/* main #hero div p {
+  margin-bottom: 0;
+} */
+
+/* End Main Styling */
+
+/* About Styling */
+main #about {
+  display: flex;
+  justify-content: space-evenly;
+}
+main #about div {
+  width: 40%;
+  padding: 50px 0;
+}
+main #about .who-iam .me {
+  margin-bottom: 10px;
+  text-align: justify;
+}
+main #about .who-iam h3,
+main #about .my-skills h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+main #about .my-skills h3 {
+  margin-bottom: 10px;
+}
+main #about .my-skills ul li {
+  margin-bottom: 10px;
+}
+/* End About Styling */
+
+/* Contact Styling */
+main #contact {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: grey;
+  padding: 50px;
+}
+main #contact div {
+  width: 40%;
+}
+main #contact .contact-title h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+main #contact .contact-form form #name,
+main #contact .contact-form form #email,
+main #contact .contact-form form #message,
+main #contact .contact-form form #submit-message {
+  width: 400px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px 0 20px;
+}
+main #contact .contact-form form #message {
+  height: 80px;
+}
+main #contact .contact-form form #submit-message {
+  height: 40px;
+  background-color: #6262ff;
+  color: white;
+  cursor: pointer;
+}
+main #contact .contact-form form #submit-message:hover {
+  background-color: #4141ff;
+}
+/* End Contact Styling */
+
+/* Footer Styling */
+footer {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+footer p {
+  background-color: azure;
+  display: inline-block;
+  font-size: 13px;
+}
+/* End Footer Styling */
