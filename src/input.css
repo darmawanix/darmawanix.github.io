@@ -1,1 +1,358 @@
 @import "tailwindcss";
+
+/* ==========================================================================
+   BOS — personal digital lab
+   Custom CSS layer on top of Tailwind (CDN). Tailwind handles layout/spacing
+   utilities; this file handles things Tailwind can't: fonts, the dotted grid
+   background, the orbital hero visual, custom hover interactions, and motion.
+   ========================================================================== */
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --surface-2: #151515;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f2f1ec;
+  --text-muted: #8a8a86;
+  --text-dim: #56564f;
+  --accent: #c8ff4d;
+  --accent-dim: rgba(200, 255, 77, 0.12);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  overflow-x: hidden;
+}
+
+/* Explicit properties instead of shorthand (mobile Safari compatibility) */
+.full-inset {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* ---- Typefaces ---- */
+.font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ---- Dotted / grid background ---- */
+.grid-bg {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -13px -13px;
+}
+
+.hairline {
+  border-color: var(--border);
+}
+
+/* ---- Status pulse dot ---- */
+.pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-ring 2.2s cubic-bezier(0.2, 0.7, 0.4, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+/* ---- Orbital hero visual ---- */
+.orbit-field {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orbit-ring {
+  position: absolute;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+}
+
+.orbit-ring--1 {
+  width: 340px;
+  height: 340px;
+  margin: -170px 0 0 -170px;
+  animation: spin-slow 60s linear infinite;
+}
+
+.orbit-ring--2 {
+  width: 220px;
+  height: 220px;
+  margin: -110px 0 0 -110px;
+  border-style: dashed;
+  animation: spin-slow-reverse 90s linear infinite;
+}
+
+.orbit-node {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  top: -2px;
+  left: 50%;
+  margin-left: -2px;
+  box-shadow: 0 0 8px 1px rgba(200, 255, 77, 0.5);
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* ---- Entrance reveal (single orchestrated hero sequence only) ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Experiment row hover ---- */
+.experiment-row {
+  border-top: 1px solid var(--border);
+  transition:
+    background-color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.experiment-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.experiment-row:hover {
+  background-color: var(--surface);
+  padding-left: 12px;
+}
+
+.experiment-row .row-arrow {
+  transform: translateX(-4px);
+  opacity: 0;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.experiment-row:hover .row-arrow {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* ---- Curiosity path ---- */
+.path-item {
+  border-top: 1px solid var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.path-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.path-item:hover {
+  background-color: var(--surface);
+}
+
+.path-item .path-line {
+  height: 1px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.35s ease;
+}
+
+.path-item:hover .path-line {
+  width: 100%;
+}
+
+.path-item .path-label {
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.path-item:hover .path-label {
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
+/* ---- Note / article index row ---- */
+.note-row {
+  border-top: 1px solid var(--border);
+  transition: background-color 0.25s ease;
+}
+
+.note-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.note-row:hover {
+  background-color: var(--surface);
+}
+
+/* ---- Project item ---- */
+.project-item {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: border-color 0.25s ease;
+}
+
+.project-item:hover {
+  border-color: var(--border-strong);
+}
+
+.project-link {
+  border-bottom: 1px solid transparent;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.project-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---- Nav link underline ---- */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ---- Focus states (accessibility) ---- */
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---- Now console ---- */
+.console-line {
+  border-top: 1px solid var(--border);
+}
+
+.console-line:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .orbit-ring--1,
+  .orbit-ring--2,
+  .pulse-dot::after {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Mobile menu ---- */
+.mobile-menu {
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.mobile-menu.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
