@@ -3,98 +3,396 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rizky — build things, follow curiosity</title>
+    <meta name="description" content="Personal digital lab of Bos — a student building with code and AI, and following rabbit holes into business, astronomy, and history." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Custom styles -->
     <link href="./src/output.css" rel="stylesheet" />
-    <title>Portfolio - Rizky</title>
-    <!-- <link rel="stylesheet" href="./src/style.css" /> -->
   </head>
-  <body>
-    <!-- Start of Header -->
-    <header>
-      <nav>
-        <h1>Rizky Darmawan</h1>
+  <body class="antialiased">
+    <!-- ============================== NAV ============================== -->
+    <header id="site-nav" class="fixed top-0 left-0 w-full z-50 transition-colors duration-300">
+      <nav class="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 py-5 border-b hairline" aria-label="Primary">
+        <a href="#top" class="font-display font-semibold text-sm tracking-wide">RIZKY DARMAWAN</a>
 
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <!-- Desktop links -->
+        <ul class="hidden md:flex items-center gap-8 font-mono text-[11px] tracking-wider uppercase text-[color:var(--text-muted)]">
+          <li><a href="#built" class="nav-link hover:text-[color:var(--text)] transition-colors">Built</a></li>
+          <li><a href="#experiments" class="nav-link hover:text-[color:var(--text)] transition-colors">Experiments</a></li>
+          <li><a href="#curiosity" class="nav-link hover:text-[color:var(--text)] transition-colors">Curiosity</a></li>
+          <li><a href="#notes" class="nav-link hover:text-[color:var(--text)] transition-colors">Notes</a></li>
+          <li><a href="#about" class="nav-link hover:text-[color:var(--text)] transition-colors">About</a></li>
         </ul>
-      </nav>
-    </header>
-    <!-- End of Header -->
 
-    <!-- Start of Main -->
-    <main>
-      <section id="hero">
-        <div>
-          <span class="hero-text">Hello, I'm</span>
-          <h2 class="hero-text">Rizky Darmawan</h2>
-          <p class="hero-text">I'm a Software Engineer who love programming and interested about Stock Investing</p>
+        <!-- Mobile toggle -->
+        <button id="menu-toggle" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          </svg>
+          <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full bg-[#0a0a0a] border-b hairline">
+        <ul class="flex flex-col font-mono text-xs uppercase tracking-wider text-[color:var(--text-muted)]">
+          <li class="border-t hairline"><a href="#built" class="block px-5 py-4">Built</a></li>
+          <li class="border-t hairline"><a href="#experiments" class="block px-5 py-4">Experiments</a></li>
+          <li class="border-t hairline"><a href="#curiosity" class="block px-5 py-4">Curiosity</a></li>
+          <li class="border-t hairline"><a href="#notes" class="block px-5 py-4">Notes</a></li>
+          <li class="border-t hairline border-b"><a href="#about" class="block px-5 py-4">About</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============================== HERO ============================== -->
+      <section class="relative min-h-[92vh] flex items-center grid-bg border-b hairline overflow-hidden">
+        <!-- Orbital visual (decorative) -->
+        <div class="orbit-field hidden md:block" aria-hidden="true" style="right: -6%; width: 55%">
+          <div class="orbit-ring orbit-ring--1"><span class="orbit-node"></span></div>
+          <div class="orbit-ring orbit-ring--2"><span class="orbit-node" style="top: auto; bottom: -2px; background: var(--text-dim); box-shadow: none"></span></div>
         </div>
-      </section>
-      <section id="about">
-        <div class="who-iam">
-          <h3 class="me">About Me</h3>
-          <p class="me">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis beatae quisquam repellat, deleniti non quod et vel nisi! Qui voluptatibus debitis numquam molestias placeat? Amet nihil eaque non harum sit?</p>
-          <p class="me">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem magni amet optio iste, autem voluptatum tempore eum obcaecati quam iusto sequi sapiente deserunt veritatis voluptates ut? Asperiores aut totam mollitia magni sed
-            odio repellat alias ex ad soluta accusamus quia, quam laborum vitae sit dignissimos veniam dolore blanditiis consequatur libero.
+
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 w-full pt-24 pb-16">
+          <p class="reveal font-mono text-[11px] tracking-wider uppercase text-[color:var(--text-muted)] mb-6" style="animation-delay: 0.05s"><span class="pulse-dot align-middle mr-2"></span>currently building — something interesting</p>
+
+          <h1 class="reveal font-display font-semibold leading-[0.98] tracking-tight text-[15vw] sm:text-6xl md:text-7xl lg:text-8xl max-w-4xl" style="animation-delay: 0.12s">I build things<br />with code &amp; AI.</h1>
+
+          <p class="reveal mt-8 max-w-md text-[color:var(--text-muted)] text-base leading-relaxed" style="animation-delay: 0.22s">
+            I also spend an unreasonable amount of time going down rabbit holes about business, astronomy, history, and whatever catches my curiosity.
           </p>
-        </div>
-        <div class="my-skills">
-          <h3>My Skills</h3>
-          <ul>
-            <li>Lorem ipsum dolor sit.</li>
-            <li>consectetur adipisicing elit. Vel, quod?.</li>
-            <li>debitis earum neque saepe nemo illo</li>
-            <li>esse iusto fugit laboriosam, cum quos.</li>
-          </ul>
+
+          <a href="#built" class="reveal inline-flex items-center gap-2 mt-10 font-mono text-xs tracking-wider uppercase text-[color:var(--text-muted)] hover:text-[color:var(--accent)] transition-colors" style="animation-delay: 0.3s">
+            Explore
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6-6m-6 6l-6-6" /></svg>
+          </a>
         </div>
       </section>
-      <section id="projects">
-        <article class="project1">
-          <span>Project Name</span>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut rerum odio autem recusandae officiis soluta expedita exercitationem facere modi perferendis!</p>
-          <button>See Projects</button>
-        </article>
-        <article class="project2">
-          <span>Project Name</span>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut rerum odio autem recusandae officiis soluta expedita exercitationem facere modi perferendis!</p>
-          <button>See Projects</button>
-        </article>
-        <article class="project3">
-          <span>Project Name</span>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut rerum odio autem recusandae officiis soluta expedita exercitationem facere modi perferendis!</p>
-          <button>See Projects</button>
-        </article>
+
+      <!-- ============================== BUILT ============================== -->
+      <!-- PROJECT DATA — edit project name, description, type, year and links here -->
+      <section id="built" class="border-b hairline">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="font-mono text-[11px] tracking-wider uppercase text-[color:var(--accent)]">01 / Built</span>
+          </div>
+          <h2 class="font-display text-2xl md:text-3xl font-medium mb-14 max-w-lg text-[color:var(--text-muted)]">Things that started as ideas and eventually became code.</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+            <!-- Featured project -->
+            <article class="project-item md:col-span-2 p-7 md:p-10 flex flex-col justify-between min-h-[340px]">
+              <div>
+                <h3 class="font-display text-3xl md:text-4xl font-medium mb-4">Project 01</h3>
+                <p class="text-[color:var(--text-muted)] max-w-sm leading-relaxed">A small experiment in building a testimonial-focused web product — figuring out how honest social proof should actually look.</p>
+              </div>
+              <div class="flex flex-wrap items-end justify-between gap-6 mt-10">
+                <div class="flex gap-8 font-mono text-[11px] uppercase text-[color:var(--text-dim)] tracking-wider">
+                  <div><span class="block mb-1">Type</span><span class="text-[color:var(--text-muted)]">Web</span></div>
+                  <div><span class="block mb-1">Year</span><span class="text-[color:var(--text-muted)]">2026</span></div>
+                </div>
+                <div class="flex gap-5 font-mono text-[11px] uppercase tracking-wider">
+                  <a href="#" class="project-link">Live ↗</a>
+                  <a href="#" class="project-link">Source ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Secondary projects -->
+            <article class="project-item p-7 flex flex-col justify-between min-h-[340px]">
+              <div>
+                <h3 class="font-display text-xl font-medium mb-3">Project 02</h3>
+                <p class="text-[color:var(--text-muted)] text-sm leading-relaxed">An experiment that started with a question.</p>
+              </div>
+              <div class="mt-8">
+                <div class="flex gap-6 font-mono text-[11px] uppercase text-[color:var(--text-dim)] tracking-wider mb-4"><span>AI</span><span>2026</span></div>
+                <a href="#" class="project-link font-mono text-[11px] uppercase tracking-wider">Live ↗</a>
+              </div>
+            </article>
+
+            <article class="project-item p-7 flex flex-col justify-between min-h-[340px] md:col-start-1">
+              <div>
+                <h3 class="font-display text-xl font-medium mb-3">Project 03</h3>
+                <p class="text-[color:var(--text-muted)] text-sm leading-relaxed">A small tool built because I wanted to see if it was possible.</p>
+              </div>
+              <div class="mt-8">
+                <div class="flex gap-6 font-mono text-[11px] uppercase text-[color:var(--text-dim)] tracking-wider mb-4"><span>Experiment</span><span>2026</span></div>
+                <a href="#" class="project-link font-mono text-[11px] uppercase tracking-wider">Source ↗</a>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
-      <section id="contact">
-        <div class="contact-title"><h3>Contact Me</h3></div>
-        <div class="contact-form">
-          <form action="#">
-            <label for="name">Name: </label>
-            <br />
-            <input type="text" id="name" placeholder="Example: John Doe" />
-            <br />
-            <label for="email">Email: </label>
-            <br />
-            <input type="email" id="email" placeholder="Example: name@domain.com" />
-            <br />
-            <label for="message">Message: </label>
-            <br />
-            <textarea name="message" id="message" placeholder="Type a message.."></textarea>
-            <br />
-            <button type="submit" id="submit-message">Submit</button>
-          </form>
+
+      <!-- ============================== EXPERIMENTS ============================== -->
+      <!-- EXPERIMENT DATA — edit title, description, date, technology and link -->
+      <section id="experiments" class="border-b hairline">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+          <span class="font-mono text-[11px] tracking-wider uppercase text-[color:var(--accent)] mb-2 block">02 / Experiments</span>
+          <h2 class="font-display text-2xl md:text-3xl font-medium mb-14 max-w-lg text-[color:var(--text-muted)]">Not everything I build becomes a serious project.</h2>
+
+          <div>
+            <a href="#" class="experiment-row group flex items-center justify-between gap-4 py-6 px-2">
+              <div class="flex items-baseline gap-5 min-w-0">
+                <span class="font-mono text-xs text-[color:var(--text-dim)] shrink-0">001</span>
+                <div class="min-w-0">
+                  <h3 class="font-display text-lg md:text-xl">Can AI build this?</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1 truncate">Testing how far a single prompt can go before it breaks.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <span class="font-mono text-[11px] uppercase text-[color:var(--text-dim)] hidden sm:inline">Aug 2026</span>
+                <svg class="row-arrow w-4 h-4 text-[color:var(--accent)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </div>
+            </a>
+
+            <a href="#" class="experiment-row group flex items-center justify-between gap-4 py-6 px-2">
+              <div class="flex items-baseline gap-5 min-w-0">
+                <span class="font-mono text-xs text-[color:var(--text-dim)] shrink-0">002</span>
+                <div class="min-w-0">
+                  <h3 class="font-display text-lg md:text-xl">A weekend web experiment</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1 truncate">Built in two days, mostly to see if I still remembered flexbox.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <span class="font-mono text-[11px] uppercase text-[color:var(--text-dim)] hidden sm:inline">Jul 2026</span>
+                <svg class="row-arrow w-4 h-4 text-[color:var(--accent)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </div>
+            </a>
+
+            <a href="#" class="experiment-row group flex items-center justify-between gap-4 py-6 px-2">
+              <div class="flex items-baseline gap-5 min-w-0">
+                <span class="font-mono text-xs text-[color:var(--text-dim)] shrink-0">003</span>
+                <div class="min-w-0">
+                  <h3 class="font-display text-lg md:text-xl">Recreating an idea just to understand it</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1 truncate">Rebuilding someone else's UI, line by line, to see how it actually works.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <span class="font-mono text-[11px] uppercase text-[color:var(--text-dim)] hidden sm:inline">Jun 2026</span>
+                <svg class="row-arrow w-4 h-4 text-[color:var(--accent)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </div>
+            </a>
+
+            <a href="#" class="experiment-row group flex items-center justify-between gap-4 py-6 px-2">
+              <div class="flex items-baseline gap-5 min-w-0">
+                <span class="font-mono text-xs text-[color:var(--text-dim)] shrink-0">004</span>
+                <div class="min-w-0">
+                  <h3 class="font-display text-lg md:text-xl">Something I probably didn't need to build</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1 truncate">Fully aware this had no reason to exist. Built it anyway.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 shrink-0">
+                <span class="font-mono text-[11px] uppercase text-[color:var(--text-dim)] hidden sm:inline">May 2026</span>
+                <svg class="row-arrow w-4 h-4 text-[color:var(--accent)]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== CURIOSITY ============================== -->
+      <section id="curiosity" class="border-b hairline">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+          <span class="font-mono text-[11px] tracking-wider uppercase text-[color:var(--accent)] mb-2 block">03 / Curiosity</span>
+          <h2 class="font-display text-2xl md:text-3xl font-medium mb-14 max-w-lg text-[color:var(--text-muted)]">I don't really have a fixed list of interests. I tend to follow questions.</h2>
+
+          <div>
+            <a href="#" class="path-item group flex items-center justify-between py-8 px-2">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">01</span>
+                <div>
+                  <h3 class="path-label font-display text-2xl md:text-4xl font-medium">Technology</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1">Web · AI · Software · Computers</p>
+                </div>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] hidden sm:inline">Explore →</span>
+            </a>
+            <div class="path-line"></div>
+
+            <a href="#" class="path-item group flex items-center justify-between py-8 px-2">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">02</span>
+                <div>
+                  <h3 class="path-label font-display text-2xl md:text-4xl font-medium">Business</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1">Companies · Investing · Capital Allocation · Economics</p>
+                </div>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] hidden sm:inline">Explore →</span>
+            </a>
+            <div class="path-line"></div>
+
+            <a href="#" class="path-item group flex items-center justify-between py-8 px-2">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">03</span>
+                <div>
+                  <h3 class="path-label font-display text-2xl md:text-4xl font-medium">Astronomy</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1">Stars · Black Holes · Civilizations · Space</p>
+                </div>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] hidden sm:inline">Explore →</span>
+            </a>
+            <div class="path-line"></div>
+
+            <a href="#" class="path-item group flex items-center justify-between py-8 px-2">
+              <div class="flex items-baseline gap-6">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">04</span>
+                <div>
+                  <h3 class="path-label font-display text-2xl md:text-4xl font-medium">History</h3>
+                  <p class="text-sm text-[color:var(--text-muted)] mt-1">Empires · Civilizations · People · Ideas</p>
+                </div>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] hidden sm:inline">Explore →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== RABBIT HOLES / NOTES ============================== -->
+      <!-- NOTES DATA — edit number, title, category and date here -->
+      <section id="notes" class="border-b hairline">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+          <span class="font-mono text-[11px] tracking-wider uppercase text-[color:var(--accent)] mb-2 block">04 / Rabbit Holes</span>
+          <h2 class="font-display text-2xl md:text-3xl font-medium mb-14 max-w-lg text-[color:var(--text-muted)]">Things I started learning because I couldn't stop wondering about them.</h2>
+
+          <div>
+            <a href="#" class="note-row flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-6 px-2">
+              <div class="flex items-baseline gap-5">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">001</span>
+                <h3 class="font-display text-base md:text-lg">How does a geothermal company actually make money?</h3>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] pl-9 sm:pl-0">Business · 2026</span>
+            </a>
+            <a href="#" class="note-row flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-6 px-2">
+              <div class="flex items-baseline gap-5">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">002</span>
+                <h3 class="font-display text-base md:text-lg">Why do some businesses compound for decades?</h3>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] pl-9 sm:pl-0">Business · 2026</span>
+            </a>
+            <a href="#" class="note-row flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-6 px-2">
+              <div class="flex items-baseline gap-5">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">003</span>
+                <h3 class="font-display text-base md:text-lg">How much energy would a Type I civilization consume?</h3>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] pl-9 sm:pl-0">Astronomy · 2026</span>
+            </a>
+            <a href="#" class="note-row flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-6 px-2">
+              <div class="flex items-baseline gap-5">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">004</span>
+                <h3 class="font-display text-base md:text-lg">Why did certain merchant families become incredibly wealthy?</h3>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] pl-9 sm:pl-0">History · 2026</span>
+            </a>
+            <a href="#" class="note-row flex flex-col sm:flex-row sm:items-center justify-between gap-2 py-6 px-2">
+              <div class="flex items-baseline gap-5">
+                <span class="font-mono text-xs text-[color:var(--text-dim)]">005</span>
+                <h3 class="font-display text-base md:text-lg">Why do stars become black holes?</h3>
+              </div>
+              <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)] pl-9 sm:pl-0">Astronomy · 2026</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== NOW ============================== -->
+      <!-- CURRENT STATUS — edit building/learning/curious/reading lines here -->
+      <section class="border-b hairline">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+          <span class="font-mono text-[11px] tracking-wider uppercase text-[color:var(--accent)] mb-2 block">05 / Now</span>
+          <h2 class="font-display text-2xl md:text-3xl font-medium mb-14 max-w-lg text-[color:var(--text-muted)]">What I'm currently doing, roughly in real time.</h2>
+
+          <div class="border hairline font-mono text-sm">
+            <div class="console-line flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 px-5 sm:px-7 py-5">
+              <span class="w-32 shrink-0 text-[color:var(--text-dim)] uppercase text-xs tracking-wider">Building</span>
+              <span class="text-[color:var(--text)]">→ AI-powered web experiments</span>
+            </div>
+            <div class="console-line flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-8 px-5 sm:px-7 py-5">
+              <span class="w-32 shrink-0 text-[color:var(--text-dim)] uppercase text-xs tracking-wider">Learning</span>
+              <span class="text-[color:var(--text)] flex flex-col gap-1">
+                <span>→ Web development</span>
+                <span>→ AI-assisted development</span>
+              </span>
+            </div>
+            <div class="console-line flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 px-5 sm:px-7 py-5">
+              <span class="w-32 shrink-0 text-[color:var(--text-dim)] uppercase text-xs tracking-wider">Curious about</span>
+              <span class="text-[color:var(--text)]">→ Value Investing</span>
+            </div>
+            <div class="console-line flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 px-5 sm:px-7 py-5">
+              <span class="w-32 shrink-0 text-[color:var(--text-dim)] uppercase text-xs tracking-wider">Reading</span>
+              <span class="text-[color:var(--text)]">→ The Warren Buffett Way</span>
+            </div>
+            <div class="console-line flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8 px-5 sm:px-7 py-5">
+              <span class="w-32 shrink-0 text-[color:var(--text-dim)] uppercase text-xs tracking-wider">Last updated</span>
+              <span class="text-[color:var(--accent)]">→ September 2026</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== ABOUT ============================== -->
+      <section id="about" class="border-b hairline">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 py-20 md:py-28">
+          <span class="font-mono text-[11px] tracking-wider uppercase text-[color:var(--accent)] mb-2 block">06 / About</span>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-10">
+            <div class="md:col-span-2">
+              <p class="font-display text-xl md:text-2xl leading-relaxed max-w-xl">I'm a student who enjoys building things with code and AI.</p>
+              <p class="text-[color:var(--text-muted)] leading-relaxed max-w-xl mt-6">
+                Outside programming, I tend to fall into random rabbit holes. I might spend a few days learning how businesses allocate capital, then suddenly find myself reading about black holes, ancient civilizations, or some completely
+                unrelated historical event.
+              </p>
+              <p class="text-[color:var(--text-muted)] leading-relaxed max-w-xl mt-4">I like learning by building, asking questions, and connecting ideas from different fields.</p>
+            </div>
+
+            <div class="font-mono text-xs uppercase tracking-wider space-y-8">
+              <div>
+                <span class="block text-[color:var(--text-dim)] mb-1">Based in</span>
+                <span class="text-[color:var(--text)] normal-case font-display text-base tracking-normal">Jakarta, Indonesia</span>
+              </div>
+              <div>
+                <span class="block text-[color:var(--text-dim)] mb-1">Focus</span>
+                <span class="text-[color:var(--text)] normal-case font-display text-base tracking-normal">Web · AI · Building</span>
+              </div>
+              <div>
+                <span class="block text-[color:var(--text-dim)] mb-1">Current mode</span>
+                <span class="text-[color:var(--text)] normal-case font-display text-base tracking-normal">Learning / Building / Exploring</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
-    <!-- End of Main -->
 
-    <!-- Start of Footer -->
+    <!-- ============================== FOOTER ============================== -->
+    <!-- SOCIAL LINKS — edit GitHub / Email / LinkedIn hrefs here -->
     <footer>
-      <p>&copy; Copyright 2026 Muhammad Rizky Darmawan.</p>
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <span class="font-display font-semibold text-lg block">RIZKY DARMAWAN</span>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-dim)]">Build things. Follow curiosity.</span>
+          </div>
+          <ul class="flex gap-6 font-mono text-xs uppercase tracking-wider text-[color:var(--text-muted)]">
+            <li><a href="https://github.com/darmawanix/" class="hover:text-[color:var(--accent)] transition-colors">GitHub</a></li>
+            <li><a href="mailto:mrdarmawan@proton.me" class="hover:text-[color:var(--accent)] transition-colors">Email</a></li>
+            <li><a href="https://linkedin.com/" class="hover:text-[color:var(--accent)] transition-colors">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-12 pt-6 border-t hairline font-mono text-[11px] text-[color:var(--text-dim)]">
+          <span>© 2026 MUHAMMAD RIZKY DARMAWAN</span>
+          <span>Still figuring things out.</span>
+        </div>
+      </div>
     </footer>
-    <!-- End of Footer -->
+
+    <script src="./js/main.js"></script>
   </body>
 </html>
