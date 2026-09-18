@@ -215,6 +215,33 @@ main #about .my-skills ul li {
 }
 /* End About Styling */
 
+/* Projects Styling */
+main #projects {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: aqua;
+  padding: 20px 0;
+}
+main #projects article {
+  width: 30%;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+main #projects article span {
+  font-weight: bold;
+}
+main #projects article p {
+  font-size: 14px;
+  text-align: justify;
+}
+main #projects article button {
+  height: 30px;
+}
+/* End Projects Styling */
+
 /* Contact Styling */
 main #contact {
   display: flex;
